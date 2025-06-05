@@ -1,0 +1,5 @@
+outs:
+- md5: 55b98b0365a1f972255af1103953db91
+  size: 91013599
+  hash: md5
+  path: best_model.ckpt
