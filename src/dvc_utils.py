@@ -8,20 +8,16 @@ logger = logging.getLogger(__name__)
 
 def setup_dvc(cfg):
     """Initialize DVC with local storage using Hydra config"""
-    try:
-        if not Path(".dvc").exists():
-            subprocess.run(["dvc", "init"], check=True)
-            logger.info("DVC initialized")
 
-            os.makedirs(cfg.data.data_path, exist_ok=True)
-            os.makedirs(cfg.data.processed_path, exist_ok=True)
+    if not Path(".dvc").exists():
+        subprocess.run(["dvc", "init"], check=True)
+        logger.info("DVC initialized")
 
-            subprocess.run(["dvc", "add", cfg.data.data_path], check=True)
-            logger.info(f"Local DVC storage configured for {cfg.data.data_path}")
+        os.makedirs(cfg.data.data_path, exist_ok=True)
+        os.makedirs(cfg.data.processed_path, exist_ok=True)
 
-    except subprocess.CalledProcessError as e:
-        logger.error(f"DVC setup failed: {e}")
-        raise
+        subprocess.run(["dvc", "add", cfg.data.data_path], check=True)
+        logger.info(f"Local DVC storage configured for {cfg.data.data_path}")
 
 
 def commit_data(cfg):

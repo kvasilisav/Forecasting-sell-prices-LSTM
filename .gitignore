@@ -134,3 +134,4 @@ dmypy.json
 # /src
 mlruns/
 .hydra/
+lightning_logs/

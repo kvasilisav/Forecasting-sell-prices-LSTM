@@ -8,7 +8,7 @@ from pytorch_lightning.callbacks import EarlyStopping, ModelCheckpoint
 from torch.utils.data import DataLoader, random_split
 
 from dataloader import DataProcessor, TimeSeriesDataset
-from dvc_utils import download_data
+from dvc_utils import download_data, setup_dvc
 from model import LSTMModel
 
 logger = logging.getLogger(__name__)
@@ -18,6 +18,7 @@ logger = logging.getLogger(__name__)
 def train(cfg: DictConfig):
     logger.info(f"Configuration:\n{OmegaConf.to_yaml(cfg)}")
 
+    setup_dvc(cfg)
     download_data(cfg)
 
     os.makedirs(cfg.train.checkpoint_dir, exist_ok=True)
