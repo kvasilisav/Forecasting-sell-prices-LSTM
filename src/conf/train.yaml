@@ -1,0 +1,6 @@
+train:
+  max_epochs: 100
+  patience: 10
+  min_lr: 1e-6
+  checkpoint_dir: "checkpoints"
+  checkpoint_filename: "best_model"

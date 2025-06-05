@@ -1,0 +1,8 @@
+# @package _global_
+model:
+  input_size: 29
+  hidden_size: 512
+  num_layers: 4
+  dropout: 0.2
+  learning_rate: 0.001
+  weight_decay: 1e-05

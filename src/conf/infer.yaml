@@ -1,0 +1,5 @@
+# @package _global_
+infer:
+  model_path: "checkpoints/best_model.ckpt"
+  output_path: "predictions.csv"
+  dvc_remote: "gdrive"

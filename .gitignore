@@ -3,6 +3,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+
 # C extensions
 *.so
 
@@ -57,6 +58,7 @@ coverage.xml
 
 # Django stuff:
 *.log
+predictions.csv
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
@@ -129,5 +131,6 @@ dmypy.json
 .pyre/
 
 # custom
-/src
+# /src
 mlruns/
+.hydra/

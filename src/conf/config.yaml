@@ -1,0 +1,9 @@
+defaults:
+  - _self_
+  - data.yaml
+  - model.yaml
+  - train.yaml
+  - infer.yaml
+hydra:
+  run:
+    dir: ./
