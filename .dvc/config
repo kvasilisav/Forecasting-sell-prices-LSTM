@@ -2,3 +2,5 @@
     remote = data
 ['remote "data"']
     url = ../src/data/raw
+['remote "model"']
+    url = ../checkpoints/best_model.ckpt
