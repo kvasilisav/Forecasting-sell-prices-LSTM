@@ -23,6 +23,8 @@ def setup_dvc(cfg):
 def commit_data(cfg):
     """Commit data changes to DVC using Hydra config"""
     try:
+        os.makedirs(cfg.data.data_path, exist_ok=True)
+        os.makedirs(cfg.data.processed_path, exist_ok=True)
         dvc_file = Path(cfg.data.data_path).with_suffix(".dvc")
 
         subprocess.run(["dvc", "add", cfg.data.data_path], check=True)
@@ -37,7 +39,8 @@ def download_data(cfg):
     """Download data from DVC cache using Hydra config"""
     try:
         data_path = Path(cfg.data.data_path)
-
+        os.makedirs(cfg.data.data_path, exist_ok=True)
+        os.makedirs(cfg.data.processed_path, exist_ok=True)
         if not any(data_path.iterdir()):
             subprocess.run(["dvc", "pull", str(data_path)], check=True)
             logger.info(f"Data downloaded from DVC cache to {data_path}")
