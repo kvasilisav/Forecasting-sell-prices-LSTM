@@ -4,5 +4,5 @@ train:
   patience: 10
   min_lr: 1e-7
   factor: 0.5
-  checkpoint_dir: "checkpoints"
+  checkpoint_dir: "model/checkpoints"
   checkpoint_filename: "best_model"
