@@ -48,14 +48,11 @@ class DataProcessor:
         )
         item_store_id = sales.iloc[self.cfg.data.item_index]["id"]
 
-        # Extract sales columns (d_1 to d_1913)
         sales_cols = [col for col in sales.columns if col.startswith("d_")]
         ts = sales[sales["id"] == item_store_id][sales_cols].T
         ts.columns = ["sales"]
         ts.index = pd.date_range(start="2011-01-29", periods=len(ts))
-        ts = ts.reset_index().rename(
-            columns={"index": "date"}
-        )  # Преобразуем индекс в столбец
+        ts = ts.reset_index().rename(columns={"index": "date"})
         return ts
 
     def _add_lag_features(self, df):

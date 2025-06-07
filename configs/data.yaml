@@ -1,8 +1,8 @@
 data:
-  data_path: "data/raw"  
+  data_path: "data/raw"
   processed_path: "data/processed"
   seq_length: 28
-  train_ratio: 0.7
+  train_ratio: 0.8
   batch_size: 16
   target_column: "sales"
   item_index: 6780
