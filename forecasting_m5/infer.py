@@ -4,11 +4,11 @@ import hydra
 import numpy as np
 import pandas as pd
 import torch
+from dataloader import DataProcessor, TimeSeriesDataset
+from dvc_utils import download_data
 from omegaconf import DictConfig, OmegaConf
 from torch.utils.data import DataLoader
 
-from dataloader import DataProcessor, TimeSeriesDataset
-from dvc_utils import download_data
 from model import LSTMModel
 
 logger = logging.getLogger(__name__)

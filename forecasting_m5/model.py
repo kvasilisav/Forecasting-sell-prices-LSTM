@@ -61,40 +61,40 @@ class LSTMModel(pl.LightningModule):
         x, y = batch
         y_hat = self(x)
         loss = self.criterion(y_hat, y)
-        self.log('train_loss', loss, prog_bar=True)
+        self.log("train_loss", loss, prog_bar=True)
         return loss
-    
+
     def validation_step(self, batch, batch_idx):
         x, y = batch
         y_hat = self(x)
         loss = self.criterion(y_hat, y)
 
         mae = torch.mean(torch.abs(y_hat - y))
-        rmse = torch.sqrt(torch.mean((y_hat - y)**2))
-        
-        self.log('val_loss', loss, prog_bar=True)
-        self.log('val_mae', mae, prog_bar=True)
-        self.log('val_rmse', rmse, prog_bar=True)
+        rmse = torch.sqrt(torch.mean((y_hat - y) ** 2))
+
+        self.log("val_loss", loss, prog_bar=True)
+        self.log("val_mae", mae, prog_bar=True)
+        self.log("val_rmse", rmse, prog_bar=True)
         return loss
-    
+
     def configure_optimizers(self):
         optimizer = torch.optim.Adam(
             self.parameters(),
             lr=self.hparams.model_cfg.learning_rate,
-            weight_decay=self.hparams.model_cfg.weight_decay
+            weight_decay=self.hparams.model_cfg.weight_decay,
         )
-        
+
         scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
             optimizer,
             patience=self.hparams.train_cfg.patience,
             factor=self.hparams.train_cfg.factor,
-            min_lr=self.hparams.train_cfg.min_lr
+            min_lr=self.hparams.train_cfg.min_lr,
         )
-        
+
         return {
-            'optimizer': optimizer,
-            'lr_scheduler': {
-                'scheduler': scheduler,
-                'monitor': 'val_loss',
-            }
+            "optimizer": optimizer,
+            "lr_scheduler": {
+                "scheduler": scheduler,
+                "monitor": "val_loss",
+            },
         }
