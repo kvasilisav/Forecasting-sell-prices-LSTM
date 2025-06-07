@@ -1,5 +1,6 @@
 # @package _global_
 infer:
-  model_path: "checkpoints/best_model.ckpt"
+  model_path: "model/checkpoints/best_model.ckpt"
   output_path: "predictions.csv"
   mlflow_uri: "http://127.0.0.1:8080"
+  start: "2011-01-29"

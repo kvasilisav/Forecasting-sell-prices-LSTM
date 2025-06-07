@@ -48,7 +48,7 @@ def predict(cfg: DictConfig):
     actuals = processor.y_scaler.inverse_transform(actuals)
 
     dates = pd.date_range(
-        start="2011-01-29", periods=len(predictions) + cfg.data.seq_length + 1
+        start=cfg.infer.start, periods=len(predictions) + cfg.data.seq_length + 1
     )[cfg.data.seq_length + 1 : len(predictions) + cfg.data.seq_length + 1]
 
     result = pd.DataFrame(

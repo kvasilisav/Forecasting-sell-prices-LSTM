@@ -23,11 +23,11 @@ class LSTMModel(pl.LightningModule):
         self.fc = nn.Sequential(
             nn.Linear(model_cfg.hidden_size, 256),
             nn.BatchNorm1d(256),
-            nn.Dropout(0.25),
+            nn.Dropout(self.model_cfg.dropout),
             nn.ReLU(),
             nn.Linear(256, 128),
             nn.BatchNorm1d(128),
-            nn.Dropout(0.2),
+            nn.Dropout(self.model_cfg.dropout),
             nn.ReLU(),
             nn.Linear(128, 1),
         )
