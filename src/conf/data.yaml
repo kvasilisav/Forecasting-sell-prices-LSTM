@@ -1,6 +1,6 @@
 data:
-  data_path: "./src/data/raw"
-  processed_path: "./src/data/processed"
+  data_path: "data/raw"  
+  processed_path: "data/processed"
   seq_length: 28
   train_ratio: 0.8
   batch_size: 32
