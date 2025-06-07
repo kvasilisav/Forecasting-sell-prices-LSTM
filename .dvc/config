@@ -5,3 +5,8 @@
     user = alikDavletshin
     timeout = 300
     password = faysapbhhwagxgek
+['remote "model"']
+    url = webdavs://webdav.yandex.ru/model
+    password = faysapbhhwagxgek
+    user = alikDavletshin
+    timeout = 300

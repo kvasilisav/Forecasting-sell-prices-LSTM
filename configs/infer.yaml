@@ -2,4 +2,4 @@
 infer:
   model_path: "checkpoints/best_model.ckpt"
   output_path: "predictions.csv"
-  dvc_remote: "gdrive"
+  mlflow_uri: "http://127.0.0.1:8080"
